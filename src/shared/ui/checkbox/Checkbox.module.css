@@ -1,0 +1,95 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.labelWrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.control {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0;
+  background-color: var(--color-bg-white);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.control::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--color-border-primary);
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease;
+}
+
+.input:focus-visible + .control {
+  border-color: #101828;
+  box-shadow: 0 0 0 3px rgba(16, 24, 40, 0.08);
+}
+
+.input:checked + .control {
+  border-color: #101828;
+  background-color: #101828;
+}
+
+.input:checked + .control::after {
+  opacity: 1;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--color-text-ghost);
+}
+
+.description {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-text-ghost);
+}
+
+.error {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-text-danger);
+}
+
+.hasError .control {
+  border-color: var(--color-text-danger);
+}
+
+.disabled .labelWrapper {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

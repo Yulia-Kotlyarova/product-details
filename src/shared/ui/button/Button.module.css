@@ -1,0 +1,117 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+  font-size: var(--font-size-heading-md);
+  font-weight: var(--font-weight-heading-md);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.size_sm {
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.size_md {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.iconOnly.size_sm {
+  width: 36px;
+  min-width: 36px;
+  padding: 0;
+}
+
+.iconOnly.size_md {
+  width: 44px;
+  min-width: 44px;
+  padding: 0;
+}
+
+.variant_primary {
+  background: var(--color-brand-vibrant);
+  color: var(--color-text-inverse);
+}
+
+.variant_primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.variant_secondary {
+  background-color: #ffffff;
+  color: #344054;
+  border: 1px solid #d0d5dd;
+}
+
+.variant_secondary:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.variant_ghost {
+  background-color: transparent;
+  color: #344054;
+}
+
+.variant_ghost:hover:not(:disabled) {
+  background-color: #f2f4f7;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adornment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconOnlyContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.loading {
+  position: relative;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

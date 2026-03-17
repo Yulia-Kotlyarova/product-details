@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 515px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--color-border-primary);
+  background: var(--color-bg-surface);
+  padding: 48px;
+}
+
+.serverError {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-text-danger);
+}
+
+.passwordToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #667085;
+  font: inherit;
+}
+
+.title {
+  font-size: var(--font-size-heading-xl);
+  line-height: 110%;
+}
+
+.subtitle {
+  font-size: var(--font-size-heading-md);
+  color: var(--color-text-ghost);
+}
+
+.checkbox {
+  align-self: flex-start;
+}
+
+.createAcc {
+  font-size: var(--font-size-heading-md);
+  color: #6c6c6c;
+}
+
+.link {
+  color: var(--color-text-brand);
+}
