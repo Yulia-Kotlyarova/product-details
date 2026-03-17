@@ -2,7 +2,7 @@
 
 ## 🚀 Демо
 
-> [Перейти на витрину](https://product-details-giml.vercel.app/login)
+[Открыть приложение](https://product-details-giml.vercel.app/)
 
 ## Данные для входа
 
