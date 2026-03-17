@@ -54,7 +54,7 @@ export const ProductsTable = ({
                 className={styles.headCell}
                 style={{
                   cursor: canSort ? 'pointer' : 'default',
-                  textAlign: header.column.columnDef.meta?.isNumeric
+                  textAlign: (header.column.columnDef.meta as { isNumeric?: boolean } | undefined)?.isNumeric
                     ? 'right'
                     : 'left',
                   userSelect: 'none',
@@ -91,7 +91,7 @@ export const ProductsTable = ({
               key={cell.id}
               className={styles.bodyCell}
               style={{
-                textAlign: cell.column.columnDef.meta?.isNumeric
+                textAlign: (cell.column.columnDef.meta as { isNumeric?: boolean } | undefined)?.isNumeric
                   ? 'right'
                   : 'left',
               }}

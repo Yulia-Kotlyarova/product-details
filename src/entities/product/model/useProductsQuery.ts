@@ -3,22 +3,19 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '@/shared/api/products';
 
 import type { Product, GetProductsParams } from './types';
+import { mapProductDtoToProduct } from '@/entities/product';
 
-type ProductSortField = 'title' | 'price' | 'rating' | null;
-type ProductSorting = {
-  sortBy: ProductSortField;
-  order: 'asc' | 'desc' | null;
-};
+type UseProductsQueryResult ={
+  products: Product[];
+  isLoading: boolean;
+  total: number
+  errorMessage: string | null;
+}
 
-type UseProductSortingResult = {
-  sorting: ProductSorting;
-  setSort: (field: ProductSortField) => void;
-  resetSorting: () => void;
-};
 
 export const useProductsQuery = (
   params: GetProductsParams,
-): UseProductSortingResult => {
+): UseProductsQueryResult => {
   const [products, setProducts] = useState<Product[]>([]);
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +35,7 @@ export const useProductsQuery = (
           return;
         }
 
-        setProducts(response.products);
+        setProducts(response.products.map(mapProductDtoToProduct));
         setTotal(response.total);
       } catch {
         if (isCancelled) {

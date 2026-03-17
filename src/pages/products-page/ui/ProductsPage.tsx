@@ -73,7 +73,7 @@ export const ProductsPage = () => {
     };
   }, [searchQuery]);
 
-  const handleSubmitSearch = (event) => {
+  const handleSubmitSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSearchQuery(searchInput);
   };

@@ -1,7 +1,7 @@
 import { LoginForm } from '@/widgets/login-form';
 import type { LoginFormValues } from '@/widgets/login-form';
 import styles from './LoginPage.module.css';
-import { RoutePath } from '@/app/router/routePaths.ts';
+import { RoutePath } from '@/app/router/routePaths';
 import { loginByCredentials } from '@/features/auth-by-credentials';
 import { useNavigate } from 'react-router-dom';
 
