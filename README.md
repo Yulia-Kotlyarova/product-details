@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Product Details
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Демо
 
-Currently, two official plugins are available:
+# [Открыть приложение](https://product-details-giml.vercel.app/login)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## О проекте
 
-## React Compiler
+В рамках тестового задания я реализовала SPA на **React 19 + TypeScript** с акцентом не только на выполнение требований, но и на **расширяемость проекта**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+В качестве архитектурной основы выбрала **FSD**, чтобы сразу разделить приложение на понятные слои: авторизация, сущности товаров, пользовательские сценарии и переиспользуемые UI-блоки.
 
-## Expanding the ESLint configuration
+Сначала был настроен базовый проект и инфраструктура, после чего я реализовала **форму входа** с валидацией, обработкой ошибок API и логикой **Remember me** через разные типы storage в зависимости от выбора пользователя.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Далее подключила **API товаров** и вывела список в табличном виде, предусмотрев основные состояния интерфейса: загрузку, ошибку и пустой результат.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Отдельно добавила **поиск через API** и **сортировку по колонкам**, при этом состояние сортировки сохраняется между перезагрузками, что делает сценарий использования более удобным и завершённым.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Логику работы с товарами постаралась организовать так, чтобы её можно было безболезненно расширять: отдельно выделены типы, мапперы, API-слой, UI-компоненты и feature-логика.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Также реализовала форму **добавления нового товара** с базовой валидацией и **toast-уведомлением** об успешном добавлении, оставив возможность в дальнейшем легко подключить реальное сохранение через API.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Дополнительно учла бизнес-логику интерфейса: например, **низкий рейтинг товара визуально подсвечивается**, чтобы важные данные считывались быстрее.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+При этом отдельно отмечу, что **полностью подогнать стили под макет я не успела**: основной фокус был на корректной архитектуре, бизнес-логике и ключевых пользовательских сценариях.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+В работе я также использовала ИИ как инженерный ассистент: для планирования этапов разработки, проверки FSD-архитектуры, интеграции auth и products API, настройки таблицы с сортировкой и persisted state, ускорения строгой TypeScript-типизации, разбора ошибок и решения инфраструктурных вопросов.
+
+В итоге получился не просто рабочий интерфейс, а аккуратно организованное приложение, которое уже сейчас решает поставленную задачу и остаётся удобным для дальнейшего развития.
+
+## Ссылка на задание
+
+[Тестовое задание](https://docs.google.com/document/d/15Iq9gp4POgv7rw0-WFwSpIYmqS1IGBh0P0lYoNBwNbA/edit?tab=t.0)
